@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Data;
+using System.Data.OleDb;
 
 /// <summary>
 /// Summary description for DBService
@@ -19,9 +21,29 @@ public class DBService : System.Web.Services.WebService {
         //InitializeComponent(); 
     }
 
-    [WebMethod]
-    public string HelloWorld() {
-        return "Hello World";
+    [WebMethod (Description = "Takes sql query and returns a data table containing the results")]
+    public DataTable GetData(string sql)
+    {
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\webstrar.fulton.asu.edu\\website6\\page0\\page01\\dsod-assignment5.accdb;");
+        con.Open();
+        OleDbDataAdapter da = new OleDbDataAdapter(sql, con);
+        DataTable dt = new DataTable();
+        da.Fill(dt);
+        con.Close();
+        con.Dispose();
+        da.Dispose();
+        return dt;
     }
     
+    [WebMethod (Description = "Takes sql query and sets data")]
+    public void SetData(string sql)
+    {
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\webstrar.fulton.asu.edu\\website6\\page0\\page01\\dsod-assignment5.accdb;");
+        con.Open();
+        OleDbCommand command = new OleDbCommand(sql, con);
+        command.ExecuteNonQuery();
+        command.Dispose();
+        con.Close();
+        con.Dispose();
+    }
 }
