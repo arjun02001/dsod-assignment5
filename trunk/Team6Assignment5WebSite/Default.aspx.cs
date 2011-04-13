@@ -11,7 +11,7 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("Product.aspx");
+            Response.Redirect("Login.aspx", false);
         }
         catch (Exception ex)
         {
