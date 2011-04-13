@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Net;
+using Assignment3Service;
 
 /// <summary>
 /// Summary description for UtilityService
@@ -19,9 +21,22 @@ public class UtilityService : System.Web.Services.WebService {
         //InitializeComponent(); 
     }
 
-    [WebMethod]
-    public string HelloWorld() {
-        return "Hello World";
+    [WebMethod(Description = "Returns the country to which the ip address belongs")]
+    public string GetCountryFromIP(string ipaddress)
+    {
+        try
+        {
+            Assignment3Service.WebService service = new Assignment3Service.WebService();
+            string country = service.GetCountryFromIP(ipaddress);
+            if (country.ToLower().Contains("error") || country.ToLower().Contains("invalid"))
+            {
+                return string.Empty;
+            }
+            return country;
+        }
+        catch (Exception)
+        {
+            return string.Empty;
+        }
     }
-    
 }
