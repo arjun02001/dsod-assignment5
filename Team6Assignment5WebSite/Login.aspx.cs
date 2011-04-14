@@ -13,6 +13,7 @@ public partial class Login : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        emailTextBox.Focus();
         errorLabel.Text = string.Empty;
     }
 
@@ -53,6 +54,13 @@ public partial class Login : System.Web.UI.Page
         catch (Exception)
         {
         }
-        Server.Transfer("Catalog.aspx", false);
+        if (password.Equals("admin123") && email.Equals("admin123@asu.edu"))
+        {
+            Server.Transfer("Admin.aspx", false);
+        }
+        else
+        {
+            Server.Transfer("Catalog.aspx", false);
+        }
     }
 }
