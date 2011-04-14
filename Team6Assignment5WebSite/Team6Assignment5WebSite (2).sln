@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Team6Assignment5WebSite", "..\Team6Assignment5WebSite\", "{ED6465FC-A3A1-4F4D-88C9-5D5F3DD35CFB}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Svn"
+		SccAuxPath = "Svn"
+		SccLocalPath = "Svn"
+		SccProvider = "SubversionScc"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/Team6Assignment5WebSite"
+		Debug.AspNetCompiler.PhysicalPath = "..\Team6Assignment5WebSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Team6Assignment5WebSite\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Team6Assignment5WebSite"
+		Release.AspNetCompiler.PhysicalPath = "..\Team6Assignment5WebSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Team6Assignment5WebSite\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "40897"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED6465FC-A3A1-4F4D-88C9-5D5F3DD35CFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED6465FC-A3A1-4F4D-88C9-5D5F3DD35CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED6465FC-A3A1-4F4D-88C9-5D5F3DD35CFB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ED6465FC-A3A1-4F4D-88C9-5D5F3DD35CFB}.Debug|x86.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
