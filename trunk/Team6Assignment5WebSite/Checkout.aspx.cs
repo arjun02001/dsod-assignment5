@@ -90,6 +90,21 @@ public partial class Checkout : System.Web.UI.Page
                 errorLabel.Text = "Invalid zip";
                 return;
             }
+            try
+            {
+                System.DateTime dt = Convert.ToDateTime(expiryDateTextBox.Text.Trim());
+                if (dt <= System.DateTime.Now)
+                {
+                    errorLabel.Text = "Invalid date";
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                errorLabel.Text = "Invalid date";
+                return;
+            }
+            Server.Transfer("ThankYou.aspx", false);
         }
         catch (Exception)
         {

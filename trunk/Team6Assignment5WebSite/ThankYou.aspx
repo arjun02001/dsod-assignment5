@@ -9,7 +9,24 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+        <asp:Table runat="server">
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label runat="server">Thank you</asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label runat="server">A confirmation email has been sent to:</asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label runat="server" ID="emailLabel"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+
+        </asp:Table>
     </div>
     </form>
 </body>
