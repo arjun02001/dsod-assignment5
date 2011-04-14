@@ -24,8 +24,8 @@ public class DBService : System.Web.Services.WebService {
     [WebMethod (Description = "Takes sql query and returns a data table containing the results")]
     public DataTable GetData(string sql)
     {
-        string path = Server.MapPath("App_Data/dsod-assignment5.accdb");
-        //string path = "\\\\webstrar.fulton.asu.edu\\website6\\page0\\page01\\dsod-assignment5.accdb";
+        //string path = Server.MapPath("App_Data/dsod-assignment5.accdb");
+        string path = "\\\\webstrar.fulton.asu.edu\\website6\\page0\\page01\\dsod-assignment5.accdb";
         OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";");
         con.Open();
         OleDbDataAdapter da = new OleDbDataAdapter(sql, con);
@@ -40,8 +40,8 @@ public class DBService : System.Web.Services.WebService {
     [WebMethod (Description = "Takes sql query and sets data")]
     public void SetData(string sql)
     {
-        string path = Server.MapPath("App_Data/dsod-assignment5.accdb");
-        //string path = "\\\\webstrar.fulton.asu.edu\\website6\\page0\\page01\\dsod-assignment5.accdb";
+        //string path = Server.MapPath("App_Data/dsod-assignment5.accdb");
+        string path = "\\\\webstrar.fulton.asu.edu\\website6\\page0\\page01\\dsod-assignment5.accdb";
         OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";");
         con.Open();
         OleDbCommand command = new OleDbCommand(sql, con);
