@@ -7,6 +7,7 @@ using System.Net;
 using Assignment3Service;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
+using System.IO;
 
 /// <summary>
 /// Summary description for UtilityService
@@ -145,5 +146,13 @@ public class UtilityService : System.Web.Services.WebService {
     public string GetCurrentTime()
     {
         return String.Format("The current time is {0}.", DateTime.Now.ToString());
+    }
+
+    [WebMethod(Description = "Error logging")]
+    public void Log(string message)
+    {
+        string path = Server.MapPath("~") + "\\log.txt";
+        File.AppendAllText(path, "\n\n" + message);
+
     }
 }

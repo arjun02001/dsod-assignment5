@@ -51,8 +51,11 @@ public partial class Login : System.Web.UI.Page
             }
 
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            UtilityService utilityservice = new UtilityService();
+            utilityservice.Log(ex.Message);
+            return;
         }
         if (password.Equals("admin123") && email.Equals("admin123@asu.edu"))
         {
