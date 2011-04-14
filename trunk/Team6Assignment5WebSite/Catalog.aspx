@@ -13,22 +13,26 @@
 
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label runat="server">Available Books:</asp:Label>
+                    <asp:Label runat="server" ID="errorLabel" ForeColor="red"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
 
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:ListBox runat="server" ID="availableBooksListBox"></asp:ListBox>
+                    <asp:Label runat="server">Available Books: (Title | ISBN | Price)</asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:ListBox runat="server" ID="availableBooksListBox" Height="200"></asp:ListBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:Button runat="server" ID="addToCartButton" Text="Add to Cart" />
+                    <asp:Button runat="server" ID="addToCartButton" Text="Add to Cart" OnClick="addToCartButton_Click" />
                 </asp:TableCell>
             </asp:TableRow>
 
         </asp:Table>
-        <br />
-        <br />
         <br />
         <br />
         <asp:Table runat="server">
@@ -41,23 +45,21 @@
 
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:ListBox runat="server" ID="yourCartListBox"></asp:ListBox>
+                    <asp:ListBox runat="server" ID="yourCartListBox" Height="200"></asp:ListBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:Button runat="server" ID="removeFromCartButton" Text="Remove from Cart" />
+                    <asp:Button runat="server" ID="removeFromCartButton" Text="Remove from Cart" OnClick="removeFromCartButton_Click" />
                 </asp:TableCell>
             </asp:TableRow>
 
         </asp:Table>
         <br />
         <br />
-        <br />
-        <br />
         <asp:Table runat="server">
             
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Button runat="server" ID="proceedToCheckoutButton" Text="Proceed to Checkout" />
+                    <asp:Button runat="server" ID="proceedToCheckoutButton" Text="Proceed to Checkout" OnClick="proceedToCheckoutButton_Click" />
                 </asp:TableCell>
             </asp:TableRow>
 

@@ -9,7 +9,27 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+        <asp:Table runat="server">
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label runat="server" ID="errorLabel" ForeColor="Red"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label runat="server">Your Cart:</asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:ListBox runat="server" ID="yourCartListBox" Height="200"></asp:ListBox>
+                </asp:TableCell>
+            </asp:TableRow>
+
+        </asp:Table>
     </div>
     </form>
 </body>
