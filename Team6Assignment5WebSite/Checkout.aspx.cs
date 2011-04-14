@@ -68,4 +68,31 @@ public partial class Checkout : System.Web.UI.Page
         {
         }
     }
+
+    protected void confirmButton_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(nameTextBox.Text) || string.IsNullOrEmpty(creditCardTextBox.Text) || string.IsNullOrEmpty(expiryDateTextBox.Text) || 
+                string.IsNullOrEmpty(zipTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text) || string.IsNullOrEmpty(stateTextBox.Text))
+            {
+                errorLabel.Text = "Please enter all fields";
+                return;
+            }
+            UtilityService utilityservice = new UtilityService();
+            if (string.IsNullOrEmpty(utilityservice.ValidateCreditCardNumber(creditCardTextBox.Text)))
+            {
+                errorLabel.Text = "Invalid credit card number";
+                return;
+            }
+            if (string.IsNullOrEmpty(utilityservice.GetInfoByZip(zipTextBox.Text)))
+            {
+                errorLabel.Text = "Invalid zip";
+                return;
+            }
+        }
+        catch (Exception)
+        {
+        }
+    }
 }
