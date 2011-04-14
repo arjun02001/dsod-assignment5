@@ -51,9 +51,9 @@ public class UtilityService : System.Web.Services.WebService {
             string citystate = service.GetInfoByZip(zip);
             if (citystate.ToLower().Contains("error"))
             {
-            return citystate;
-        }
                 return string.Empty;
+            }
+            return citystate;
             }
         catch (Exception)
         {

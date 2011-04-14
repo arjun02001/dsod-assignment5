@@ -30,6 +30,86 @@
             </asp:TableRow>
 
         </asp:Table>
+        <br />
+        <br />
+        <asp:Table runat="server">
+            
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label runat="server">Payment</asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label runat="server">Total Amount:</asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox runat="server" ID="totalAmountTextBox"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label runat="server">Name:</asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox runat="server" ID="nameTextBox"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label runat="server">Credit Card Number:</asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox runat="server" ID="creditCardTextBox" AutoPostBack="true" OnTextChanged="creditCardTextBox_TextChanged"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label runat="server">Expiry Date:</asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox runat="server" ID="expiryDateTextBox"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label1" runat="server">Zip:</asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox runat="server" ID="zipTextBox" AutoPostBack="true" OnTextChanged="zipTextBox_TextChanged"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label2" runat="server">City:</asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox runat="server" ID="cityTextBox"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label3" runat="server">State:</asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox runat="server" ID="stateTextBox"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Button runat="server" ID="confirmButton" Text="Confirm" />
+                </asp:TableCell>
+            </asp:TableRow>
+
+        </asp:Table>
     </div>
     </form>
 </body>

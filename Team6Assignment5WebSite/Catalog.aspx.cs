@@ -89,7 +89,7 @@ public partial class Catalog : System.Web.UI.Page
                 string[] bookparts = li.Text.Split('|');
                 books.Add(new Book(bookparts[0], bookparts[1], bookparts[2]));
             }
-            Session["BooksInCart"] = books;
+            Session["booksincart"] = books;
         }
         catch (Exception)
         {
