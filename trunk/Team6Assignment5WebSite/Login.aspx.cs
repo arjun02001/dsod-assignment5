@@ -60,6 +60,7 @@ public partial class Login : System.Web.UI.Page
         }
         else
         {
+            Session["email"] = email;
             Server.Transfer("Catalog.aspx", false);
         }
     }
