@@ -45,7 +45,7 @@
                     <asp:Label runat="server">Total Amount:</asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox runat="server" ID="totalAmountTextBox"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="totalAmountTextBox" Enabled="false"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
 
@@ -69,7 +69,7 @@
 
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label runat="server">Expiry Date:</asp:Label>
+                    <asp:Label runat="server">Expiry Date: (mm/dd/yyyy)</asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox runat="server" ID="expiryDateTextBox"></asp:TextBox>
@@ -105,7 +105,7 @@
 
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Button runat="server" ID="confirmButton" Text="Confirm" />
+                    <asp:Button runat="server" ID="confirmButton" Text="Confirm" OnClick="confirmButton_Click" />
                 </asp:TableCell>
             </asp:TableRow>
 
