@@ -34,15 +34,13 @@ public partial class Login : System.Web.UI.Page
                 return;
             }
 
-            string sql = string.Format("select * from [user] where email = '{0}'", email);
-            DBService dbservice = new DBService();
-            DataTable dt = dbservice.GetData(sql);
-            if (dt.Rows.Count == 0)
+            XMLService xmlservice = new XMLService();
+            string hashedpassword = xmlservice.GetPassword(email);
+            if (string.IsNullOrEmpty(hashedpassword))
             {
                 errorLabel.Text = "No record found. Please register to continue";
                 return;
             }
-            string hashedpassword = dt.Rows[0][1].ToString();
             UtilityService utilityservice = new UtilityService();
             if (!password.Equals(utilityservice.DecryptString(hashedpassword, email)))
             {
