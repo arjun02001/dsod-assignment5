@@ -87,7 +87,7 @@ public class XMLService : System.Web.Services.WebService
             reader.WhitespaceHandling = WhitespaceHandling.None;
             while (reader.Read())
             {
-                if (reader.HasAttributes)
+                if (reader.AttributeCount == 3)
                 {
                     book = new Book(reader["title"], reader["isbn"], "$" + reader["price"]);
                     books.Add(book);
