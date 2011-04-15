@@ -19,19 +19,13 @@ public partial class Catalog : System.Web.UI.Page
 
     private void PopulateAvailableBooks()
     {
-        Book book = null;
         try
         {
-            string sql = string.Format("select * from [book];");
-            DBService dbservice = new DBService();
-            DataTable dt = dbservice.GetData(sql);
-            foreach (DataRow dr in dt.Rows)
+            XMLService xmlservice = new XMLService();
+            List<Book> books = xmlservice.GetBooks();
+            foreach (Book book in books)
             {
-                book = new Book();
-                book.title = dr[0].ToString();
-                book.isbn = dr[1].ToString();
-                book.price = "$" + dr[2].ToString();
-                availableBooksListBox.Items.Add(new ListItem(book.title + " | " + book.isbn + " | " + book.price, book.isbn));
+                availableBooksListBox.Items.Add(new ListItem(book.title + " | " + book.isbn + " | " + book.price));
             }
             availableBooksListBox.SelectedIndex = 0;
         }
