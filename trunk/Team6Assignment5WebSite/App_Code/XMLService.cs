@@ -42,6 +42,7 @@ public class XMLService : System.Web.Services.WebService
         }
         catch (Exception)
         {
+            return string.Empty;
         }
         finally
         {
@@ -73,4 +74,34 @@ public class XMLService : System.Web.Services.WebService
         return true;
     }
 
+    [WebMethod]
+    public List<Book> GetBooks()
+    {
+        List<Book> books = new List<Book>();
+        Book book = null;
+        XmlTextReader reader = null;
+        try
+        {
+            string path = Server.MapPath("App_Data/Book.xml");
+            reader = new XmlTextReader(path);
+            reader.WhitespaceHandling = WhitespaceHandling.None;
+            while (reader.Read())
+            {
+                if (reader.HasAttributes)
+                {
+                    book = new Book(reader["title"], reader["isbn"], "$" + reader["price"]);
+                    books.Add(book);
+                }
+            }
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+        finally
+        {
+            reader.Close();
+        }
+        return books;
+    }
 }
