@@ -23,7 +23,7 @@ public partial class Register : System.Web.UI.Page
             email = emailTextBox.Text.Trim();
             password = passwordTextBox.Text.Trim();
             confirmpassword = confirmPasswordTextBox.Text.Trim();
-            if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmpassword))
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmpassword))
             {
                 errorLabel.Text = "Please enter all fields";
                 return;
@@ -43,21 +43,20 @@ public partial class Register : System.Web.UI.Page
                 errorLabel.Text = "Password and confirm password do not match";
                 return;
             }
-
-            string sql = string.Format("select * from [user] where email = '{0}'", email);
-            DBService dbservice = new DBService();
-            DataTable dt = dbservice.GetData(sql);
-            if (dt.Rows.Count > 0)
+            XMLService xmlservice = new XMLService();
+            string hashedpassword = xmlservice.GetPassword(email);
+            if (!string.IsNullOrEmpty(hashedpassword))
             {
                 errorLabel.Text = "Email already exists. Please choose a different email";
                 return;
             }
-
             UtilityService utilityservice = new UtilityService();
-            string hashedPassword = utilityservice.EncryptString(password, email);
-            sql = string.Format("insert into [user] values ('{0}', '{1}')", email, hashedPassword);
-            dbservice.SetData(sql);
-
+            hashedpassword = utilityservice.EncryptString(password, email);
+            if (!xmlservice.AddUser(email, hashedpassword))
+            {
+                errorLabel.Text = "An internal error occured, please try again";
+                return;
+            }
         }
         catch (Exception)
         {
