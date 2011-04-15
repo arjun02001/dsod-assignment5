@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Xml;
 
 /// <summary>
 /// Summary description for XMLService
@@ -20,8 +21,25 @@ public class XMLService : System.Web.Services.WebService {
     }
 
     [WebMethod]
-    public string HelloWorld() {
-        return "Hello World";
+    public string GetPassword(string email) 
+    {
+        try
+        {
+            string path = Server.MapPath("App_Data/User.xml");
+            XmlTextReader reader = new XmlTextReader(path);
+            reader.WhitespaceHandling = WhitespaceHandling.None;
+            while (reader.Read())
+            {
+                if (reader["email"] == email)
+                {
+                    return reader["password"];
+                }
+            }
+        }
+        catch (Exception)
+        {
+        }
+        return string.Empty;
     }
     
 }
