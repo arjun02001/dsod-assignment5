@@ -10,6 +10,10 @@ public partial class Catalog : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["email"] == null)
+        {
+            Server.Transfer("Login.aspx", false);
+        }
         if (!IsPostBack)
         {
             PopulateAvailableBooks();
