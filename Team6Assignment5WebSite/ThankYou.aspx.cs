@@ -9,6 +9,10 @@ public partial class ThankYou : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["email"] == null)
+        {
+            Server.Transfer("Login.aspx", false);
+        }
         emailLabel.Text = Session["email"].ToString();
 
         string subject = "Purchase confirmation";
