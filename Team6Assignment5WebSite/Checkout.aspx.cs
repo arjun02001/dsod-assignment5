@@ -12,6 +12,10 @@ public partial class Checkout : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         errorLabel.Text = string.Empty;
+        if (Session["email"] == null)
+        {
+            Server.Transfer("Login.aspx", false);
+        }
         try
         {
             if (!IsPostBack)
