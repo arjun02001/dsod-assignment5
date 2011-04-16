@@ -15,6 +15,7 @@ public partial class Login : System.Web.UI.Page
     {
         emailTextBox.Focus();
         errorLabel.Text = string.Empty;
+        Session["email"] = null;
     }
 
     public void loginButton_Click(object sender, EventArgs e)
