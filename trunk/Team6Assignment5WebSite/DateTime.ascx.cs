@@ -9,6 +9,7 @@ public partial class DateTime : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Calendar.SelectedDate = System.DateTime.Now.Date;
+        label_Time.Text = "Right Now is : " + System.DateTime.Now.TimeOfDay.ToString();
     }
 }
