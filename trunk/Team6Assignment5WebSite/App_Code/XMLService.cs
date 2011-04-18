@@ -104,4 +104,30 @@ public class XMLService : System.Web.Services.WebService
         }
         return books;
     }
+
+    [WebMethod]
+    public int GetNumberOfUsers()
+    {
+        int returnCount = 0;
+        XmlTextReader reader = null;
+        try
+        {
+            string path = Server.MapPath("App_Data/User.xml");
+            reader = new XmlTextReader(path);
+            while (reader.Read())
+            {
+                returnCount++;
+            }
+        }
+        catch (Exception)
+        {
+            return -1;
+        }
+        finally
+        {
+            reader.Close();
+        }
+        return returnCount;
+       
+    }
 }
