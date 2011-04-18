@@ -1,15 +1,32 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Catalog.aspx.cs" Inherits="Catalog" %>
+<%@ Register TagPrefix="Date" TagName="Time" Src="~/DateTime.ascx" %>
+<%@ Register TagPrefix="Hdr" TagName="Welcome" Src="~/Header.ascx" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Catalog</title>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:Table runat="server">
+   
+    <table>
+    <tr>
+    <td>
+    <Hdr:Welcome ID="top" runat="server" />
+    </td>
+    </tr>
+    <tr>
+    <td>
+     <asp:Panel ID="Panel1" runat="server" Height="219px" Width="394px">
+            <Date:Time ID="Time1" runat="server" />
+           
+        </asp:Panel>
+    </td>
+    <td>
+     <div>
+     <asp:Table ID="Table1" runat="server">
 
             <asp:TableRow>
                 <asp:TableCell>
@@ -19,7 +36,7 @@
 
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label runat="server">Available Books: (Title | ISBN | Price)</asp:Label>
+                    <asp:Label ID="Label1" runat="server">Available Books: (Title | ISBN | Price)</asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
 
@@ -33,13 +50,16 @@
             </asp:TableRow>
 
         </asp:Table>
+    </div>
+    <div>
+       
         <br />
         <br />
-        <asp:Table runat="server">
+        <asp:Table ID="Table2" runat="server">
 
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label runat="server">Your Cart</asp:Label>
+                    <asp:Label ID="Label2" runat="server">Your Cart</asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
 
@@ -55,7 +75,7 @@
         </asp:Table>
         <br />
         <br />
-        <asp:Table runat="server">
+        <asp:Table ID="Table3" runat="server">
             
             <asp:TableRow>
                 <asp:TableCell>
@@ -64,7 +84,13 @@
             </asp:TableRow>
 
         </asp:Table>
-    </div>
+
+        </div>
+    </td>
+    </tr>
+    </table>
+       
+    
     </form>
 </body>
 </html>
