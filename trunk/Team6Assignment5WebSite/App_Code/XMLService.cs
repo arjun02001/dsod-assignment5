@@ -130,4 +130,32 @@ public class XMLService : System.Web.Services.WebService
         return returnCount;
        
     }
+    [WebMethod]
+    public bool addBooksToCatalog(Book userBook)
+    {
+        try
+        {
+
+            string path = Server.MapPath("App_Data/Book.xml");
+            XmlDocument bookXML = new XmlDocument();
+            bookXML.Load(path);
+            XmlElement newBook = bookXML.CreateElement("book");
+            newBook.SetAttribute("title", userBook.title);
+            newBook.SetAttribute("isbn", userBook.isbn);
+            newBook.SetAttribute("price", userBook.price);
+            bookXML.DocumentElement.AppendChild(newBook);
+            bookXML.Save(path);
+
+            
+        }
+        catch(Exception ex)
+        {
+             UtilityService utilityservice = new UtilityService();
+            utilityservice.Log(ex.Message);
+            return false;
+        }
+
+        return true;
+
+    }
 }
