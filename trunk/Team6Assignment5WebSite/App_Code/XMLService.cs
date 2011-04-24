@@ -158,4 +158,64 @@ public class XMLService : System.Web.Services.WebService
         return true;
 
     }
+    [WebMethod]
+    public List<string> GetBookDetails(string bookName)
+    {
+        XmlTextReader readingBook = null;
+        List<string> isbnAndPrice = new List<string>();
+        //String element;
+        try
+        {
+            string path = Server.MapPath("App_Data/Book.xml");
+            readingBook = new XmlTextReader(path);
+            readingBook.WhitespaceHandling = WhitespaceHandling.None;
+            while (readingBook.Read())
+            {
+                if (readingBook["title"] == bookName)
+                {
+                     isbnAndPrice.Add(readingBook["isbn"]);
+                     isbnAndPrice.Add(readingBook["price"]);
+                }
+            }
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+
+        finally
+        {
+            readingBook.Close();
+        }
+        return isbnAndPrice;
+    }
+    public List<String> GetBookNames()
+    {
+        List<String> books = new List<String>();
+        String book = null;
+        XmlTextReader reader = null;
+        try
+        {
+            string path = Server.MapPath("App_Data/Book.xml");
+            reader = new XmlTextReader(path);
+            reader.WhitespaceHandling = WhitespaceHandling.None;
+            while (reader.Read())
+            {
+                if (reader.AttributeCount == 3)
+                {
+                    book = reader["title"];
+                    books.Add(book);
+                }
+            }
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+        finally
+        {
+            reader.Close();
+        }
+        return books;
+    }
 }
