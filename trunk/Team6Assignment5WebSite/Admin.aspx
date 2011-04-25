@@ -26,6 +26,16 @@
             <td>
              <div>
     <asp:Table ID="Table1" runat="server">
+     <asp:TableRow>
+        <asp:TableCell>
+               <asp:Label ID="hdrLabel" runat="server" Text="Add Book to Catalog" Font-Bold="true"></asp:Label>
+        </asp:TableCell>
+    </asp:TableRow>
+     <asp:TableRow>
+        <asp:TableCell>
+              <br />
+        </asp:TableCell>
+    </asp:TableRow>
     <asp:TableRow>
         <asp:TableCell>
             <asp:Label ID="lblAddBookTitle" Text="Book Title" runat="server"></asp:Label>
@@ -42,20 +52,36 @@
         <asp:TableCell>
             <asp:Label ID="lblAddBookPrice" Text="Book Price" runat="server"></asp:Label>
             <asp:TextBox ID="txtAddBookPrice" runat="server"></asp:TextBox>
-             <asp:RequiredFieldValidator ID="addBooksValidation2" ControlToValidate="txtAddBookPrice" ValidationGroup="addBookDetails"
+           <asp:RequiredFieldValidator ID="addBooksValidation2" ControlToValidate="txtAddBookPrice" ValidationGroup="addBookDetails"
                 ErrorMessage="*" runat="server" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtAddBookPrice"
+            ErrorMessage="Please Enter Numbers" ForeColor="Red" ValidationExpression="^[0-9]*\.?[0-9]+$" ValidationGroup="addBookDetails"></asp:RegularExpressionValidator>
         </asp:TableCell>
     </asp:TableRow>
     <asp:TableRow>
         <asp:TableCell> 
-            <asp:Button ID="btnAddBooksToCatalog" runat="server" Text="Add Book To Catalog" OnClick="btnClick_AddBookToCatalog" 
+            <asp:Button ID="btnAddBooksToCatalog" runat="server" Text="Add Book" OnClick="btnClick_AddBookToCatalog" 
             CausesValidation="true" ValidationGroup="addBookDetails" />
         </asp:TableCell>
     </asp:TableRow>
-
+     <asp:TableRow>
+        <asp:TableCell>
+               <br />
+        </asp:TableCell>
+    </asp:TableRow>
+     <asp:TableRow>
+        <asp:TableCell>
+               <asp:Label ID="Label1" runat="server" Text="List of All Books" Font-Bold="true"></asp:Label>
+        </asp:TableCell>
+    </asp:TableRow>
+     <asp:TableRow>
+        <asp:TableCell>
+              <br />
+        </asp:TableCell>
+    </asp:TableRow>
     <asp:TableRow>
         <asp:TableCell>
-            <asp:ListBox ID="ListOfNewBooks" runat="server" Enabled="true"  ></asp:ListBox>
+               <asp:ListBox ID="ListOfNewBooks" runat="server" Enabled="true" Height=150  ></asp:ListBox>
         </asp:TableCell>
     </asp:TableRow>
 
@@ -82,7 +108,7 @@
     </asp:TableRow>
     <asp:TableRow>
         <asp:TableCell>
-            <asp:Label ID="lblErrorMessage" runat="server" Visible="false"></asp:Label>
+            <asp:Label ID="lblErrorMessage" runat="server" Visible="false" ForeColor="Blue"></asp:Label>
         </asp:TableCell>
     </asp:TableRow>
         </asp:Table>
