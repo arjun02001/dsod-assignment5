@@ -32,7 +32,7 @@ public partial class Admin : System.Web.UI.Page
 
     private void clearAll()
     {
-        lblErrorMessage.Visible = false;
+      //  lblErrorMessage.Visible = false;
         lblBookISBN.Visible = false;
         lblBookName.Visible = false;
         lblBookPrice.Visible = false;
@@ -51,6 +51,7 @@ public partial class Admin : System.Web.UI.Page
     }
     protected void btnClick_AddBookToCatalog(object sender, EventArgs e)
     {
+        //duplicate check
         try
         {
             if (txtAddBookTitle.Text == "" || txtAddBookISBN.Text == "" || txtAddBookPrice.Text == "")
