@@ -1,16 +1,15 @@
 ﻿<%@ Application Language="C#" %>
 
-<script runat="server">
+<script runat="server" Language="C#">
 
     void Application_Start(object sender, EventArgs e) 
     {
-        // Code that runs on application startup
-
+        Application["counter"] = 0;
     }
     
     void Application_End(object sender, EventArgs e) 
     {
-        //  Code that runs on application shutdown
+        Response.Write("Bye User");
 
     }
         
@@ -22,7 +21,8 @@
 
     void Session_Start(object sender, EventArgs e) 
     {
-        // Code that runs when a new session is started
+        int count = Convert.ToInt32(Application["counter"]);
+        Application["counter"] = ++count;
 
     }
 
