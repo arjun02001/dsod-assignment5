@@ -9,12 +9,40 @@ public partial class Admin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
+
+        clear();
+
+        if (!IsPostBack)
+        {
+            //list to fetch all books
+            populateBooks();
+           
+        }
+        
+        
+    }
+    private void clear()
+    {
         lblErrorMessage.Visible = false;
         lblBookISBN.Visible = false;
         lblBookName.Visible = false;
         lblBookPrice.Visible = false;
+    }
 
-        //list to fetch all books
+    private void clearAll()
+    {
+        lblErrorMessage.Visible = false;
+        lblBookISBN.Visible = false;
+        lblBookName.Visible = false;
+        lblBookPrice.Visible = false;
+        txtAddBookISBN.Text = string.Empty;
+        txtAddBookPrice.Text = string.Empty;
+        txtAddBookTitle.Text = string.Empty;
+    }
+
+    private void populateBooks()
+    {
         List<String> allBooks = new List<String>();
         XMLService populateList = new XMLService();
         allBooks = populateList.GetBookNames();
@@ -25,16 +53,28 @@ public partial class Admin : System.Web.UI.Page
     {
         try
         {
-            Book userBook = new Book(txtAddBookTitle.Text, txtAddBookISBN.Text, txtAddBookPrice.Text);
-            XMLService addNewBook = new XMLService();
-            if (!addNewBook.addBooksToCatalog(userBook))
+            if (txtAddBookTitle.Text == "" || txtAddBookISBN.Text == "" || txtAddBookPrice.Text == "")
             {
-                //error happned
-                lblErrorMessage.Text = "An internal error occured. Please try again";
-                lblErrorMessage.Visible = true;
-                return;
+                //either of the text box is empty
+                lblErrorMessage.Text = "Empty values not accepted. Please enter values in textbox";
             }
-            ListOfNewBooks.Items.Add(new ListItem(userBook.title));
+            else
+            {
+                Book userBook = new Book(txtAddBookTitle.Text, txtAddBookISBN.Text, txtAddBookPrice.Text);
+                XMLService addNewBook = new XMLService();
+                if (!addNewBook.addBooksToCatalog(userBook))
+                {
+                    //error happned
+                    lblErrorMessage.Text = "An internal error occured. Please try again";
+                    lblErrorMessage.Visible = true;
+                    return;
+                }
+                ListOfNewBooks.Items.Add(new ListItem(userBook.title));
+            }
+            lblErrorMessage.Text = "Book added to catalog Successfully";
+            lblErrorMessage.Visible = true;
+            //clear
+            clearAll();
         }
         catch (Exception)
         {
