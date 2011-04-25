@@ -1,9 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Header.ascx.cs" Inherits="Header" %>
+<div>
+<p>
+    <img alt="" src="Images/title.jpg"/></p>
 
-<table>
-<tr>
-<td>
-<h2>Welcome to A.A.R BookStore</h2>
-</td>
-</tr>
-</table>
+<br />
+<p align="right">
+<asp:Button runat="server" OnClick="logoutButton_Click" Text="Logout" /></p>
+</div>

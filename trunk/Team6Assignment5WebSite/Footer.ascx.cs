@@ -9,6 +9,6 @@ public partial class Footer : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        cpy.Text = "Copyright &copy; " + System.DateTime.Now.Year + ", AAR Inc. All Rights Reserved";
     }
 }
