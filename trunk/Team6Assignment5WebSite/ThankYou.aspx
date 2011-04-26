@@ -13,28 +13,28 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:Table runat="server">
+        <asp:Table runat="server" Width="100%">
             <asp:TableRow>
-                <asp:TableCell ColumnSpan="2"><Hdr:Welcome ID="top" runat="server" /></asp:TableCell>
+                <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
+                    <Hdr:Welcome ID="top" runat="server" />
+                </asp:TableCell>
             </asp:TableRow>
 
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Panel ID="Panel1" runat="server" Height="219px" Width="200px">
                     <Date:Time ID="Time1" runat="server" />
-                    </asp:Panel>
                 </asp:TableCell>
-                <asp:TableCell>
+                <asp:TableCell HorizontalAlign="Left">
                     <asp:Table runat="server">
                         <asp:TableRow>
                             <asp:TableCell>
-                                <asp:Label ID="Label1" runat="server">Thank you</asp:Label>
+                                <asp:Label ID="Label1" runat="server" Font-Size="Large">Thank you</asp:Label>
                             </asp:TableCell>
                         </asp:TableRow>
 
                         <asp:TableRow>
                             <asp:TableCell>
-                                <asp:Label ID="Label2" runat="server">A confirmation email has been sent to:</asp:Label>
+                                <asp:Label ID="Label2" runat="server" Font-Size="Large">A confirmation email has been sent to:</asp:Label>
                             </asp:TableCell>
                             <asp:TableCell>
                                 <asp:Label runat="server" ID="emailLabel" Font-Bold="true" ForeColor="Brown" Font-Size="Large"></asp:Label>
@@ -45,7 +45,7 @@
             </asp:TableRow>
 
             <asp:TableFooterRow>
-                <asp:TableCell ColumnSpan="2">
+                <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                     <Ftr:Copyright ID="Cpyrt" runat="server" />
                 </asp:TableCell>
             </asp:TableFooterRow>
