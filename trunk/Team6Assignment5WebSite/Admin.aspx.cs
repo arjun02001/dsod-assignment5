@@ -9,18 +9,18 @@ public partial class Admin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
-        clear();
-
-        if (!IsPostBack)
+        try
         {
-            //list to fetch all books
-            populateBooks();
-           
+            clear();
+            if (!IsPostBack)
+            {
+                //list to fetch all books
+                populateBooks();
+            }
         }
-        
-        
+        catch (Exception)
+        {
+        }
     }
     private void clear()
     {
@@ -32,10 +32,7 @@ public partial class Admin : System.Web.UI.Page
 
     private void clearAll()
     {
-      //  lblErrorMessage.Visible = false;
-        lblBookISBN.Visible = false;
-        lblBookName.Visible = false;
-        lblBookPrice.Visible = false;
+        clear();
         txtAddBookISBN.Text = string.Empty;
         txtAddBookPrice.Text = string.Empty;
         txtAddBookTitle.Text = string.Empty;
@@ -43,11 +40,17 @@ public partial class Admin : System.Web.UI.Page
 
     private void populateBooks()
     {
-        List<String> allBooks = new List<String>();
-        XMLService populateList = new XMLService();
-        allBooks = populateList.GetBookNames();
-        ListOfNewBooks.DataSource = allBooks;
-        ListOfNewBooks.DataBind();
+        try
+        {
+            List<String> allBooks = new List<String>();
+            XMLService populateList = new XMLService();
+            allBooks = populateList.GetBookNames();
+            ListOfNewBooks.DataSource = allBooks;
+            ListOfNewBooks.DataBind();
+        }
+        catch (Exception)
+        {
+        }
     }
     protected void btnClick_AddBookToCatalog(object sender, EventArgs e)
     {
