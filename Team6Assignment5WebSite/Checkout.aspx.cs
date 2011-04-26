@@ -33,8 +33,10 @@ public partial class Checkout : System.Web.UI.Page
                 }
             }
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            UtilityService service = new UtilityService();
+            service.Log(ex.Message);
         }
     }
 
@@ -50,8 +52,10 @@ public partial class Checkout : System.Web.UI.Page
                 return;
             }
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            UtilityService service = new UtilityService();
+            service.Log(ex.Message);
         }
     }
 
@@ -69,8 +73,10 @@ public partial class Checkout : System.Web.UI.Page
             cityTextBox.Text = status.Split(',')[0];
             stateTextBox.Text = status.Split(',')[1];
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            UtilityService service = new UtilityService();
+            service.Log(ex.Message);
         }
     }
 
@@ -121,8 +127,10 @@ public partial class Checkout : System.Web.UI.Page
             }
             Response.Redirect("ThankYou.aspx", false);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            UtilityService service = new UtilityService();
+            service.Log(ex.Message);
         }
     }
 }
