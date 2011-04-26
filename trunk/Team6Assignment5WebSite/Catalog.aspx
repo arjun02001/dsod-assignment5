@@ -57,7 +57,7 @@
                                     </asp:TableRow>
                                     <asp:TableRow>
                                         <asp:TableCell>
-                                            <asp:ListBox runat="server" ID="yourCartListBox" Height="200"></asp:ListBox>
+                                            <asp:ListBox runat="server" ID="yourCartListBox" Height="200" Width="400"></asp:ListBox>
                                         </asp:TableCell>
                                     </asp:TableRow>
                                     <asp:TableRow>
