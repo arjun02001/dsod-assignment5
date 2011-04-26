@@ -13,9 +13,10 @@
     }
         
     void Application_Error(object sender, EventArgs e) 
-    { 
-        // Code that runs when an unhandled error occurs
-
+    {
+        UtilityService service = new UtilityService();
+        service.Log("sender: " + sender.ToString());
+        service.Log("event: " + e.ToString());
     }
 
     void Session_Start(object sender, EventArgs e) 
