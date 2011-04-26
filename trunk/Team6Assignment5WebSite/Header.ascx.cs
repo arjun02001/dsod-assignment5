@@ -10,7 +10,16 @@ public partial class Header : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        try
+        {
+            if (Session["email"] != null)
+            {
+                emailLabel.Text = Session["email"].ToString();
+            }
+        }
+        catch (Exception)
+        {
+        }
     }
 
     public void logoutButton_Click(object sender, EventArgs e)
