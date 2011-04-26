@@ -59,12 +59,12 @@ public partial class Login : System.Web.UI.Page
         if (password.Equals("admin123") && email.Equals("admin123@asu.edu"))
         {
             Session["email"] = email;
-            Server.Transfer("Admin.aspx", false);
+            Response.Redirect("Admin.aspx", false);
         }
         else
         {
             Session["email"] = email;
-            Server.Transfer("Catalog.aspx", false);
+            Response.Redirect("Catalog.aspx", false);
         }
     }
 }

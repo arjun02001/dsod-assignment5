@@ -11,7 +11,7 @@ public partial class ThankYou : System.Web.UI.Page
     {
         if (Session["email"] == null)
         {
-            Server.Transfer("Login.aspx", false);
+            Response.Redirect("Login.aspx", false);
         }
         emailLabel.Text = Session["email"].ToString();
 

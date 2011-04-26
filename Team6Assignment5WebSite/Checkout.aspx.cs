@@ -15,7 +15,7 @@ public partial class Checkout : System.Web.UI.Page
         errorLabel.Text = string.Empty;
         if (Session["email"] == null)
         {
-            Server.Transfer("Login.aspx", false);
+            Response.Redirect("Login.aspx", false);
         }
         try
         {
@@ -119,7 +119,7 @@ public partial class Checkout : System.Web.UI.Page
                 errorLabel.Text = "Invalid date";
                 return;
             }
-            Server.Transfer("ThankYou.aspx", false);
+            Response.Redirect("ThankYou.aspx", false);
         }
         catch (Exception)
         {
