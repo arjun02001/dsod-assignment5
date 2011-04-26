@@ -12,4 +12,5 @@
   </book>
   <book title="Distributed Operating System" isbn="8954-62311" price="50">
   </book>
+  <book title="Information Retrieval" isbn="9632-8745-52" price="40" />
 </books>
