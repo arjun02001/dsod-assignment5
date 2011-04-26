@@ -9,7 +9,6 @@
     
     void Application_End(object sender, EventArgs e) 
     {
-        Response.Write("Bye User");
 
     }
         
