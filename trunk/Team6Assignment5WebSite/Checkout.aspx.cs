@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DSODAssignment5ClassLibrary;
 
 public partial class Checkout : System.Web.UI.Page
 {
@@ -78,15 +79,25 @@ public partial class Checkout : System.Web.UI.Page
         try
         {
             if (string.IsNullOrEmpty(nameTextBox.Text) || string.IsNullOrEmpty(creditCardTextBox.Text) || string.IsNullOrEmpty(expiryDateTextBox.Text) || 
-                string.IsNullOrEmpty(zipTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text) || string.IsNullOrEmpty(stateTextBox.Text))
+                string.IsNullOrEmpty(zipTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text) || string.IsNullOrEmpty(stateTextBox.Text) || string.IsNullOrEmpty(phoneTextBox.Text))
             {
                 errorLabel.Text = "Please enter all fields";
+                return;
+            }
+            if (!ValidatePhone.Validate(phoneTextBox.Text))
+            {
+                errorLabel.Text = "Invalid phone";
                 return;
             }
             UtilityService utilityservice = new UtilityService();
             if (string.IsNullOrEmpty(utilityservice.ValidateCreditCardNumber(creditCardTextBox.Text)))
             {
                 errorLabel.Text = "Invalid credit card number";
+                return;
+            }
+            if (!ValidateZip.Validate(zipTextBox.Text))
+            {
+                errorLabel.Text = "Invalid zip";
                 return;
             }
             if (string.IsNullOrEmpty(utilityservice.GetInfoByZip(zipTextBox.Text)))

@@ -94,6 +94,15 @@
 
                         <asp:TableRow>
                             <asp:TableCell HorizontalAlign="Right">
+                                <asp:Label ID="Label10" runat="server">Phone:</asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                <asp:TextBox runat="server" ID="phoneTextBox"></asp:TextBox>
+                            </asp:TableCell>
+                        </asp:TableRow>
+
+                        <asp:TableRow>
+                            <asp:TableCell HorizontalAlign="Right">
                                 <asp:Label ID="Label7" runat="server">Zip:</asp:Label>
                             </asp:TableCell>
                             <asp:TableCell>
