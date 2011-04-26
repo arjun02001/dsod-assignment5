@@ -12,7 +12,7 @@ public partial class Catalog : System.Web.UI.Page
     {
         if (Session["email"] == null)
         {
-            Server.Transfer("Login.aspx", false);
+            Response.Redirect("Login.aspx", false);
         }
         if (!IsPostBack)
         {
@@ -92,6 +92,6 @@ public partial class Catalog : System.Web.UI.Page
         catch (Exception)
         {
         }
-        Server.Transfer("Checkout.aspx", false);
+        Response.Redirect("Checkout.aspx", false);
     }
 }

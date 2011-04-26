@@ -62,6 +62,6 @@ public partial class Register : System.Web.UI.Page
         catch (Exception)
         {
         }
-        Server.Transfer("Login.aspx", false);
+        Response.Redirect("Login.aspx", false);
     }
 }
