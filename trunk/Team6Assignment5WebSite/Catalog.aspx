@@ -17,7 +17,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td valign="top">
                 <Date:Time ID="Time1" runat="server" />
             </td>
             <td>
