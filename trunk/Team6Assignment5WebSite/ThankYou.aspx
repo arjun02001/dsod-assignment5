@@ -37,7 +37,7 @@
                                 <asp:Label ID="Label2" runat="server">A confirmation email has been sent to:</asp:Label>
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Label runat="server" ID="emailLabel"></asp:Label>
+                                <asp:Label runat="server" ID="emailLabel" Font-Bold="true" ForeColor="Brown" Font-Size="Large"></asp:Label>
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
