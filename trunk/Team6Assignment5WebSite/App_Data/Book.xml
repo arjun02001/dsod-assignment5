@@ -13,4 +13,6 @@
   <book title="Distributed Operating System" isbn="8954-62311" price="50">
   </book>
   <book title="Information Retrieval" isbn="9632-8745-52" price="40" />
+  <book title="Software Design" isbn="8748-965-235" price="34.5" />
+  <book title="Green Computing" isbn="1236-987456" price="30" />
 </books>
