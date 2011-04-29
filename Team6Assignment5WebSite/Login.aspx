@@ -54,6 +54,12 @@
                                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Register.aspx">New users please register before logging in</asp:HyperLink>
                             </asp:TableCell>
                         </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>&nbsp;</asp:TableCell>
+                            <asp:TableCell>
+                                Forgot Password? <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/ForgotPassword.aspx">Click Here</asp:HyperLink>
+                            </asp:TableCell>
+                        </asp:TableRow>
                     </asp:Table>
                 </asp:TableCell>
             </asp:TableRow>
