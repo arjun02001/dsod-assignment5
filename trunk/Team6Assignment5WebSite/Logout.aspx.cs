@@ -10,13 +10,9 @@ public partial class Logout : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-    }
-
-    public void logoutButton_Click(object sender, EventArgs e)
-    {
         Session.Abandon();
         FormsAuthentication.SignOut();
-        Response.Redirect("./");
+        Response.Redirect("Default.aspx");
+        //FormsAuthentication.RedirectToLoginPage();
     }
 }

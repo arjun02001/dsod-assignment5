@@ -24,14 +24,6 @@ public partial class Header : System.Web.UI.UserControl
 
     public void logoutButton_Click(object sender, EventArgs e)
     {
-        try
-        {
-            Session.Abandon();
-            FormsAuthentication.SignOut();
-            Response.Redirect("./");
-        }
-        catch (Exception)
-        {
-        }
+        Response.Redirect("Logout.aspx", false);
     }
 }
