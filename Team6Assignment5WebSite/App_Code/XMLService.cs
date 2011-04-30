@@ -114,9 +114,13 @@ public class XMLService : System.Web.Services.WebService
         {
             string path = Server.MapPath("App_Data/User.xml");
             reader = new XmlTextReader(path);
+            reader.WhitespaceHandling = WhitespaceHandling.None;
             while (reader.Read())
             {
-                returnCount++;
+                if (reader.HasAttributes)
+                {
+                    returnCount++;
+                }
             }
         }
         catch (Exception)
@@ -127,8 +131,7 @@ public class XMLService : System.Web.Services.WebService
         {
             reader.Close();
         }
-        return returnCount;
-       
+        return (returnCount - 1);
     }
     [WebMethod]
     public bool addBooksToCatalog(Book userBook)
