@@ -153,6 +153,51 @@ public class UtilityService : System.Web.Services.WebService {
     {
         string path = Server.MapPath("~") + "\\log.txt";
         File.AppendAllText(path, "\n\n" + message);
+    }
 
+    [WebMethod]
+    public string GetVisitorCount()
+    {
+        string count = string.Empty;
+        StreamReader sr = null;
+        try
+        {
+            string path = Server.MapPath("App_Data/Visitor.txt");
+            sr = new StreamReader(path);
+            count = sr.ReadLine();
+            if (!string.IsNullOrEmpty(count))
+            {
+                return count;
+            }
+        }
+        catch (Exception)
+        {
+        }
+        finally
+        {
+            sr.Close();
+        }
+        return string.Empty;
+    }
+
+    [WebMethod]
+    public void IncrementVisitorCount()
+    {
+        int count = 0;
+        string path = Server.MapPath("App_Data/Visitor.txt");
+        try
+        {
+            string stringcount = GetVisitorCount();
+            if (!string.IsNullOrEmpty(stringcount))
+            {
+                count = Convert.ToInt32(stringcount) + 1;
+                string[] write = new string[1];
+                write[0] = count.ToString();
+                File.WriteAllLines(path, write);
+            }
+        }
+        catch (Exception)
+        {
+        }
     }
 }
