@@ -15,7 +15,7 @@ public partial class DateTime : System.Web.UI.UserControl
         string count = service.GetVisitorCount();
         if (!string.IsNullOrEmpty(count))
         {
-            counterLabel.Text = "You are Visitor Number : " + Application["counter"].ToString();
+            counterLabel.Text = "You are Visitor Number : " + count;
         }
         //if(Application["counter"] != null)
         //{
