@@ -9,6 +9,18 @@ public partial class Footer : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        cpy.Text = "Copyright &copy; " + System.DateTime.Now.Year + ", AAR Inc. All Rights Reserved";
+        try
+        {
+            cpy.Text = "Copyright &copy; " + System.DateTime.Now.Year + ", AAR Inc. All Rights Reserved";
+            XMLService service = new XMLService();
+            int numusers = service.GetNumberOfUsers();
+            if (numusers != -1)
+            {
+                totalUsersLabel.Text = "Total number of registered users: " + numusers;
+            }
+        }
+        catch (Exception)
+        {
+        }
     }
 }
