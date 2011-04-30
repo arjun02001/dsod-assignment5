@@ -56,7 +56,7 @@
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell>&nbsp;</asp:TableCell>
-                            <asp:TableCell>
+                            <asp:TableCell HorizontalAlign="Left">
                                 Forgot Password? <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/ForgotPassword.aspx">Click Here</asp:HyperLink>
                             </asp:TableCell>
                         </asp:TableRow>
