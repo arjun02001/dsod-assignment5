@@ -11,9 +11,15 @@ public partial class DateTime : System.Web.UI.UserControl
     {
         Calendar.SelectedDate = System.DateTime.Now.Date;
         label_Time.Text = "Current time : " + System.DateTime.Now.ToShortTimeString();
-        if(Application["counter"] != null)
+        UtilityService service = new UtilityService();
+        string count = service.GetVisitorCount();
+        if (!string.IsNullOrEmpty(count))
         {
-            counterLabel.Text = "You are Visitor Number : "+ Application["counter"].ToString();
+            counterLabel.Text = "You are Visitor Number : " + Application["counter"].ToString();
         }
+        //if(Application["counter"] != null)
+        //{
+        //    counterLabel.Text = "You are Visitor Number : "+ Application["counter"].ToString();
+        //}
     }
 }
