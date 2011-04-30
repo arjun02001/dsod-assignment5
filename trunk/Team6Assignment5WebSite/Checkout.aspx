@@ -73,7 +73,8 @@
                                             <asp:Label ID="Label5" runat="server">Credit Card Number:</asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
-                                            <asp:TextBox runat="server" ID="creditCardTextBox" AutoPostBack="true" OnTextChanged="creditCardTextBox_TextChanged"></asp:TextBox>
+                                            <%--<asp:TextBox runat="server" ID="creditCardTextBox" AutoPostBack="true" OnTextChanged="creditCardTextBox_TextChanged"></asp:TextBox>--%>
+                                            <asp:TextBox runat="server" ID="creditCardTextBox" ></asp:TextBox>
                                         </asp:TableCell>
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -127,7 +128,7 @@
                     <asp:Table runat="server">
                         <asp:TableRow>
                             <asp:TableCell>
-                                <asp:Button runat="server" ID="confirmButton" Text="Confirm" OnClick="confirmButton_Click" />
+                                <asp:Button runat="server" ID="confirmButton" Text="Confirm" OnClientClick="return alert('Thank you for your purchase.')" OnClick="confirmButton_Click" />
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>

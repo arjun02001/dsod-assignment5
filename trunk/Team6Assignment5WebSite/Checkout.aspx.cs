@@ -40,24 +40,24 @@ public partial class Checkout : System.Web.UI.Page
         }
     }
 
-    protected void creditCardTextBox_TextChanged(object sender, EventArgs e)
-    {
-        try
-        {
-            UtilityService utilityservice = new UtilityService();
-            string status = utilityservice.ValidateCreditCardNumber(creditCardTextBox.Text.Trim());
-            if (string.IsNullOrEmpty(status))
-            {
-                errorLabel.Text = "Invalid credit card number";
-                return;
-            }
-        }
-        catch (Exception ex)
-        {
-            UtilityService service = new UtilityService();
-            service.Log(ex.Message);
-        }
-    }
+    //protected void creditCardTextBox_TextChanged(object sender, EventArgs e)
+    //{
+    //    try
+    //    {
+    //        UtilityService utilityservice = new UtilityService();
+    //        string status = utilityservice.ValidateCreditCardNumber(creditCardTextBox.Text.Trim());
+    //        if (string.IsNullOrEmpty(status))
+    //        {
+    //            errorLabel.Text = "Invalid credit card number";
+    //            return;
+    //        }
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        UtilityService service = new UtilityService();
+    //        service.Log(ex.Message);
+    //    }
+    //}
 
     protected void zipTextBox_TextChanged(object sender, EventArgs e)
     {
