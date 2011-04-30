@@ -23,7 +23,8 @@
     {
         int count = Convert.ToInt32(Application["counter"]);
         Application["counter"] = ++count;
-
+        UtilityService service = new UtilityService();
+        service.IncrementVisitorCount();
     }
 
     void Session_End(object sender, EventArgs e) 
