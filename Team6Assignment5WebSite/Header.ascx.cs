@@ -24,6 +24,16 @@ public partial class Header : System.Web.UI.UserControl
 
     public void logoutButton_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Logout.aspx", false);
+        Session.Clear();
+        Session.Abandon();
+        FormsAuthentication.SignOut();
+        Response.Write("<SCRIPT LANGUAGE=javascript>");
+        Response.Write("{");
+        Response.Write(" var Backlen=history.length;");
+        Response.Write(" history.go(-Backlen);");
+        //Response.Write(" window.location.href='Default.aspx'; ");
+        Response.Write("}");
+        Response.Write("</SCRIPT>");
+        //Response.Redirect("Default.aspx", false);
     }
 }
